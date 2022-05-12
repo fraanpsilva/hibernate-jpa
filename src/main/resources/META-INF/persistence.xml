@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+<!--    se houver mais de um banco de dados deve ter um persistence-unit para cada banco de dados-->
+    <persistence-unit name="loja" transaction-type="RESOURCE LOCAL ">
+<!--        aqui vão todas as configurações do banco de dados-->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:loja"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+
+<!--        propriedade especificas da implemetantação do hibernate-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+        </properties>
+
+<!--        mapeando as entidades, mas se tiver usanso o hibernate não é necessário, se adicionar uma, é preciso mapear todas-->
+<!--        <class>br.com.fpsilva.loja.modelo.Produto</class>-->
+        
+
+
+    </persistence-unit>
+
+
+</persistence>
