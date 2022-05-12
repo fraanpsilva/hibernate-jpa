@@ -20,7 +20,6 @@ public class Produto {
 
     private BigDecimal preco;
 
-
     public Long getId() {
         return id;
     }
