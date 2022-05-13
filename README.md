@@ -19,7 +19,17 @@ Atributos como enun precisam da anotação @Enumerated(EnumType.STRING) e a form
 
 ### Mapeando relacionamentos
 Anotações das cardinalidades:
-* @ManyToOne
-* @ManyToMany
-* @OneToMany
-* @OneToOne
+* @ManyToOne - muitos para um
+* @ManyToMany - muitos para muitos
+* @OneToMany - um para muitos
+* @OneToOne - um para um
+
+É obrigatório adicionar alguma anotação de cardinalidade em todos os atributos que representam relacionamentos
+
+### Estado no insert da entidade
+* **Transient:** quando o objeto da entidade é instanciado mas não está sendo gerenciado pela JPA
+* **Managed:** é quando o objeto da entidade passa a ser gerenciado pela JPA, quando é chamado o método _persist()_
+* **BD:** é quando é feito o _commit() ou flush()_, o objeto vai ser salvo no banco de dados
+* **Detached:** é quando a conexão do banco de dados é encerrada com o método _close()_ ou _clear()_
+
+## Estado no update da entidade
