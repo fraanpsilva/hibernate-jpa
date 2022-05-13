@@ -1,6 +1,8 @@
 package br.com.fpsilva.loja.testes;
 
+import br.com.fpsilva.loja.dao.ProdutoDao;
 import br.com.fpsilva.loja.modelo.Produto;
+import br.com.fpsilva.loja.util.JpaUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,12 +17,13 @@ public class CadastroDeProduto {
         p1.setDescricao("Muito Legal");
         p1.setPreco(new BigDecimal("800"));
 
-        // fazendo a conexão com o banco de dados
-        EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("loja"); // o parametro é o que está la no persistence-unity
-        EntityManager em = factory.createEntityManager();
+
+        EntityManager em = JpaUtil.getEntityManager();
+        ProdutoDao dao = new ProdutoDao(em);
+
+
         em.getTransaction().begin(); // chamando a transação
-        em.persist(p1); // fazendo inserte na tabela de produto
+        dao.cadastrar(p1);
         em.getTransaction().commit(); // fazendo commit no banco
 
         em.close(); // fechando a conexão
