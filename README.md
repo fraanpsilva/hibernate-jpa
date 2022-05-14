@@ -31,5 +31,15 @@ Anotações das cardinalidades:
 * **Managed:** é quando o objeto da entidade passa a ser gerenciado pela JPA, quando é chamado o método _persist()_
 * **BD:** é quando é feito o _commit() ou flush()_, o objeto vai ser salvo no banco de dados
 * **Detached:** é quando a conexão do banco de dados é encerrada com o método _close()_ ou _clear()_
+* Para voltar do estado Detached para o estado managed usamos o método _merge()_. Esse método devolve 
+ uma nova referência que que está no estado Managed.
+
 
 ## Estado no update da entidade
+* **Update é:** Pegar uma entidade que está no estado Managed e alterar os dados dessa entidade e fazer commit
+* Trazer do BD para o estado Managed usamos o método _find()_ ou _createQuery()_
+* Esses são métodos de fazer consulta na JPA
+
+## Estado do delete da entidade
+* Para excluir: quando a entidade está no estado Managed, podemos chamar o metodo _remove()_ então passa 
+para o estado **removed**
